@@ -1,9 +1,13 @@
-import AuthContext from "./context/AuthContext";
+// import AuthContext from "./context/AuthContext";
 import "bootstrap/dist/css/bootstrap.min.css";
+import AuthContext from "./context/AuthContext";
+import Router from "./router/Router";
 function App() {
   return (
     <div>
-      <AuthContext />
+      <AuthContext>
+        <Router />
+      </AuthContext>
     </div>
   );
 }
