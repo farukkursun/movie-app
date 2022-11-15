@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import {createRegister} from '../auth/firebase'
+import {createRegister, signInWithGoogle} from '../auth/firebase'
 import { Form, Button } from "react-bootstrap";
 import { useNavigate } from "react-router-dom";
 
@@ -20,19 +20,21 @@ const Register = () => {
   };
 
   return (
-    <Form onSubmit={handleSubmit}>
+    <Form onSubmit={handleSubmit} className='register text-center' >
       <Form.Group className="mb-3" controlId="name">
         <Form.Label>Name</Form.Label>
         <Form.Control
+        className="w-75 m-auto"
           onChange={(e) => setFirstName(e.target.value)}
           type="text"
           placeholder="enter name"
         />
       </Form.Group>
 
-      <Form.Group className="mb-3" controlId="latsname">
+      <Form.Group className="mb-3m" controlId="latsname">
         <Form.Label>LastName</Form.Label>
         <Form.Control
+         className="w-75 m-auto"
           onChange={(e) => setLastName(e.target.value)}
           type="text"
           placeholder="enter last name"
@@ -41,6 +43,7 @@ const Register = () => {
       <Form.Group className="mb-3" controlId="email">
         <Form.Label>Email address</Form.Label>
         <Form.Control
+         className="w-75 m-auto"
           onChange={(e) => setRegisterEmail(e.target.value)}
           type="email"
           placeholder="Enter email"
@@ -50,15 +53,17 @@ const Register = () => {
       <Form.Group className="mb-3" controlId="password">
         <Form.Label>Password</Form.Label>
         <Form.Control
+         className="w-75 m-auto"
           onChange={(e) => setRegisterPassword(e.target.value)}
           type="password"
           placeholder="Password"
         />
       </Form.Group>
-      <Button  variant="primary" type="submit">
+      <Button  variant="primary" type="submit" className="me-5">
         Register
       </Button>
-      <Button className="ms-3" variant="primary" type="button">
+      <Button className="" variant="primary" type="button"
+      onClick={() => signInWithGoogle(navigate)}>
         mit google
       </Button>
     </Form>

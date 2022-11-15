@@ -2,8 +2,8 @@
 import { initializeApp } from "firebase/app";
 import {
   getAuth,
-  // GoogleAuthProvider,
-  // signInWithPopup,
+  GoogleAuthProvider,
+  signInWithPopup,
   createUserWithEmailAndPassword,
   signInWithEmailAndPassword,
   signOut,
@@ -25,30 +25,29 @@ const firebaseConfig = {
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
 export const auth = getAuth(app);
-// const provider = new GoogleAuthProvider();
 
-export const createRegister = async (registerEmail, registerPassword,navigate) => {
+export const createRegister = async (
+  registerEmail,
+  registerPassword,
+  navigate
+) => {
   try {
     const userRegister = await createUserWithEmailAndPassword(
       auth,
       registerEmail,
       registerPassword
     );
-    navigate('/')
+    navigate("/");
     console.log(userRegister);
   } catch (error) {
     console.log(error);
   }
 };
 
-export const createLogin = async (loginEmail, loginPassword,navigate) => {
+export const createLogin = async (loginEmail, loginPassword, navigate) => {
   try {
-     await signInWithEmailAndPassword(
-      auth,
-      loginEmail,
-      loginPassword
-    );
-    navigate('/')
+    await signInWithEmailAndPassword(auth, loginEmail, loginPassword);
+    navigate("/");
   } catch (error) {
     console.log(error);
   }
@@ -59,31 +58,26 @@ export const userObserver = (setCurrentUser) => {
     if (user) {
       const { email, displayName, photoURL } = user;
       setCurrentUser({ email, displayName, photoURL });
-     console.log(user);
+      console.log(user);
     } else {
-      setCurrentUser(false)
-      console.log('user logged out');
+      setCurrentUser(false);
+      console.log("user logged out");
     }
   });
 };
-
 
 export const logOut = async () => {
   await signOut(auth);
 };
 
-// export const signInWithGoogle = () => {
-//   signInWithPopup(auth, provider)
-//     .then((result) => {
-//       const name = result.user.displayName;
-//       const email = result.user.email;
-//       const profilePic = result.user.photoURL;
-
-//       localStorage.setItem("name", name);
-//       localStorage.setItem("email", email);
-//       localStorage.setItem("profilePic", profilePic);
-//     })
-//     .catch((error) => {
-//       console.log(error);
-//     });
-// };
+export const signInWithGoogle = (navigate) => {
+  const provider = new GoogleAuthProvider();
+  signInWithPopup(auth, provider)
+    .then((result) => {
+      console.log(result);
+      navigate("/");
+    })
+    .catch((error) => {
+      console.log(error);
+    });
+};
