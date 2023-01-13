@@ -8,7 +8,9 @@ import {
   signInWithEmailAndPassword,
   signOut,
   onAuthStateChanged,
+  updateProfile,
 } from "firebase/auth";
+import { toastError, toastSuccess } from "../helper/Toastify";
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
 
@@ -29,6 +31,7 @@ export const auth = getAuth(app);
 export const createRegister = async (
   registerEmail,
   registerPassword,
+  displayName,
   navigate
 ) => {
   try {
@@ -37,10 +40,14 @@ export const createRegister = async (
       registerEmail,
       registerPassword
     );
+    updateProfile(auth.currentUser, {
+      displayName: displayName,
+    });
     navigate("/");
+    toastSuccess("Registered successfully");
     console.log(userRegister);
   } catch (error) {
-    console.log(error);
+    toastError(error.message);
   }
 };
 
@@ -48,8 +55,9 @@ export const createLogin = async (loginEmail, loginPassword, navigate) => {
   try {
     await signInWithEmailAndPassword(auth, loginEmail, loginPassword);
     navigate("/");
+    toastSuccess("Logged in succesfuly");
   } catch (error) {
-    console.log(error);
+    toastError(error.message);
   }
 };
 
@@ -68,6 +76,7 @@ export const userObserver = (setCurrentUser) => {
 
 export const logOut = async () => {
   await signOut(auth);
+  toastSuccess('Logged out successfully')
 };
 
 export const signInWithGoogle = (navigate) => {
@@ -76,6 +85,7 @@ export const signInWithGoogle = (navigate) => {
     .then((result) => {
       console.log(result);
       navigate("/");
+      toastSuccess('Logged in succesfully')
     })
     .catch((error) => {
       console.log(error);

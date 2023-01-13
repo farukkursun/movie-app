@@ -14,15 +14,18 @@ const Register = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    createRegister(registerEmail, registerPassword,navigate)
+    const displayName =`${firstName} ${lastName}`
+    createRegister(registerEmail, registerPassword,displayName, navigate)
     console.log(firstName, lastName, registerEmail,registerPassword);
     
   };
 
   return (
+  <div className="d-flex">
+  <div className="registerana"></div>
     <Form onSubmit={handleSubmit} className='register text-center' >
       <Form.Group className="mb-3" controlId="name">
-        <Form.Label>Name</Form.Label>
+        <Form.Label className="text-center">Name</Form.Label>
         <Form.Control
         className="w-75 m-auto"
           onChange={(e) => setFirstName(e.target.value)}
@@ -59,14 +62,15 @@ const Register = () => {
           placeholder="Password"
         />
       </Form.Group>
-      <Button  variant="primary" type="submit" className="me-5">
+      <Button  variant="primary" type="submit" className="me-5 mt-5">
         Register
       </Button>
-      <Button className="" variant="primary" type="button"
+      <Button className="mt-5" variant="primary" type="button"
       onClick={() => signInWithGoogle(navigate)}>
         mit google
       </Button>
     </Form>
+    </div>
   );
 };
 
@@ -74,23 +78,3 @@ export default Register;
 
 
 
-{
-  /* <div>
-      <div>
-        <h3>Register User</h3>
-        <input
-          placeholder="email..."
-          onChange={(event) => {
-            setRegisterEmail(event.target.value);
-          }}
-        />
-        <input
-          placeholder="password..."
-          onChange={(event) => {
-            setRegisterPassword(event.target.value);
-          }}
-        />
-        <button onClick={register}>Create User</button>
-      </div>
-    </div> */
-}

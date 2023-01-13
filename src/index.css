@@ -46,19 +46,63 @@
   padding: 0.5rem ;
 
 }
+.tag {
+  border-radius: 5px;
+  padding: 0.7rem;
+  font-weight: bold;
+  width: 3rem;
+  text-align: center;
+}
+
+.tag.green {
+  background-color: #1b5e20;
+}
+
+.tag.orange {
+  background-color: #f57f17;
+}
+
+.tag.red {
+  background-color: #7f0000;
+}
 .login{
-  border-radius: 20px;
-  background-color: #7d8ce0;
-  width: 25rem;
-  border: 1px solid black;
-  margin: 1rem auto;
+  margin-top: 2rem;
+  margin-left: auto;
+ 
+   width: 20%; 
+  
+ 
+}
+.loginana{
+  height: 100vh;
+  width: 80%;
+  padding: 0;
+  margin: 0;
+  background-image: url("https://picsum.photos/1600/900");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+
+}
+.registerana{
+ 
+  height: 100vh;
+  width: 80%;
+  padding: 0;
+  margin: 0;
+  background-image: url("https://picsum.photos/1600/900");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+
 }
 .register{
-  border-radius: 20px;
-  background-color: #7d8ce0;
-  width: 25rem;
-  border: 1px solid black;
-  margin: 1rem auto;
+  margin-top: 2rem;
+  margin-left: auto;
+ 
+   
+   width: 20%; 
+   
 }
 .search{
   display: flex;
@@ -67,7 +111,7 @@
   gap: 1em;
 }
 .searchinput{
-  
+  width: 25%;
   padding: 0.5rem;
  
   outline: none;
@@ -76,4 +120,16 @@
 .search button{
 border-radius: 10px;
 background-color: black;
+}
+
+.detay{
+width: 60rem;
+margin: 1rem auto;
+
+}
+
+
+
+.video{
+  height: 20rem !important;
 }

@@ -15,7 +15,8 @@ const Login = () => {
     console.log(loginEmail, loginPassword);
   };
 
-  return (
+  return (<div className="d-flex">
+  <div className="loginana"></div>
     <Form onSubmit={handleSubmit} className='login text-center'>
       <Form.Group className="mb-3 text-center" controlId="email">
         <Form.Label>Email address</Form.Label>
@@ -36,11 +37,11 @@ const Login = () => {
           placeholder="Password"
         />
       </Form.Group>
-      <Button className="  me-5" variant="primary" type="submit">
+      <Button className="  me-5 mt-5" variant="primary" type="submit">
         Login
       </Button>
       <Button
-        className=""
+        className="mt-5"
         variant="primary"
         type="button"
         onClick={() => signInWithGoogle(navigate)}
@@ -48,6 +49,7 @@ const Login = () => {
         Mit google
       </Button>
     </Form>
+    </div>
   );
 };
 

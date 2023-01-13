@@ -2,6 +2,7 @@ import React, { useContext, useEffect, useState } from "react";
 import axios from "axios";
 import Moviecard from "../components/Moviecard";
 import { MovieContext } from "../context/AuthContext";
+import { toastWarning } from "../helper/Toastify";
 
 const ApiKey = "2ffb1cad850221d084465c45e6fd0612";
 const FEATURED_API = `https://api.themoviedb.org/3/discover/movie?api_key=${ApiKey}`;
@@ -14,6 +15,7 @@ const Main = () => {
   const {currentUser}= useContext(MovieContext);
   const [movies, setmovies] = useState([]);
   const [searchText, setSearchText] = useState("");
+
   useEffect(() => {
     getMovies(FEATURED_API);
   }, []);
@@ -32,9 +34,9 @@ if(searchText && currentUser){
   getMovies(SEARCH_API + searchText)
 }
 else if (!currentUser){
-  alert('please log in to')
+  toastWarning('please log in to')
 }else{
-  alert('enter a text')
+  toastWarning('enter a text')
 }
 setSearchText('')
 

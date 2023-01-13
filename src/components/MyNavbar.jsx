@@ -1,6 +1,6 @@
 import React, { useContext } from "react";
 
-import { Container, Nav, Navbar } from "react-bootstrap";
+import {  Nav, Navbar } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import { logOut } from "../auth/firebase";
 import { MovieContext } from "../context/AuthContext";
@@ -9,16 +9,16 @@ const MyNavbar = () => {
   const { currentUser } = useContext(MovieContext);
   console.log(currentUser);
   return (
-    <Navbar bg="dark" variant="dark" expand="lg">
-      <Container>
-        <Navbar.Brand>
+    <Navbar bg="dark" variant="dark" >
+    
+        <Navbar.Brand className="ms-2">
           <Link className="nav-link" to="/">
             React Movie App
           </Link>
         </Navbar.Brand>
-        <Navbar.Toggle aria-controls="basic-navbar-nav" />
-        <Navbar.Collapse id="basic-navbar-nav">
-          <Nav className="ms-auto">
+        <Navbar.Toggle aria-controls="basic-navbar-nav" expand='lg'/>
+        <Navbar.Collapse id="basic-navbar-nav"  >
+          <Nav className="ms-auto "  >
             {currentUser && <h6 className="user">{currentUser?.displayName}</h6>}
 
             <Link className="nav-link" to="/register">
@@ -32,7 +32,7 @@ const MyNavbar = () => {
             </Nav.Link>
           </Nav>
         </Navbar.Collapse>
-      </Container>
+      
     </Navbar>
   );
 };
