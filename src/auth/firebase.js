@@ -16,14 +16,13 @@ import { toastError, toastSuccess } from "../helper/Toastify";
 
 // Your web app's Firebase configuration
 const firebaseConfig = {
-  apiKey: "AIzaSyAqyd-kHMSli0l7-_U9gOprU-jIZpwsEDw",
-  authDomain: "movie-app-44691.firebaseapp.com",
-  projectId: "movie-app-44691",
-  storageBucket: "movie-app-44691.appspot.com",
-  messagingSenderId: "344103909931",
-  appId: "1:344103909931:web:bdebee95e08c6d4d73c86e",
+  apiKey: process.env.REACT_APP_apiKey,
+  authDomain: process.env.REACT_APP_authDomain,
+  projectId: process.env.REACT_APP_projectId,
+  storageBucket: process.env.REACT_APP_storageBucket,
+  messagingSenderId: process.env.REACT_APP_messagingSenderId,
+  appId: process.env.REACT_APP_appId,
 };
-
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
 export const auth = getAuth(app);
