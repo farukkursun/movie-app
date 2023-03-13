@@ -1,6 +1,6 @@
 # React Movie App
 
-Responsive Movie App made using React and Tailwind.
+Responsive Movie App made using React and Bootstrap.
 
 <hr />
 
