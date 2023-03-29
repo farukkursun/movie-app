@@ -55,7 +55,7 @@ const Main = () => {
       <div className="main">
         {loading ? (
           <div class="spinner-border" role="status">
-            <span class="sr-only">Loading...</span>
+            <span class="sr-only"></span>
           </div>
         ) : (
           movies.map((movie) => <Moviecard key={movie.id} {...movie} />)
