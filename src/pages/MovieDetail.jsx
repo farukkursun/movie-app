@@ -18,7 +18,7 @@ const MovieDetail = () => {
     vote_count,
   } = movieDetail;
 
-  const ApiKey = "2ffb1cad850221d084465c45e6fd0612";
+  const ApiKey = process.env.REACT_APP_TMDB_KEY;
   const movieDetailBaseUrl = `https://api.themoviedb.org/3/movie/${id}?api_key=${ApiKey}`;
   const baseImageUrl = "https://image.tmdb.org/t/p/w1280";
   const defaultImage =

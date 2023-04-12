@@ -5,7 +5,7 @@ import AuthContext from "./context/AuthContext";
 import Router from "./router/Router";
 function App() {
   return (
-    <div>
+    <div className="renk">
       <AuthContext>
         <Router />
         <ToastContainer />
