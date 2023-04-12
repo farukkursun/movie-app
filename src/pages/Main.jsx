@@ -4,7 +4,7 @@ import Moviecard from "../components/Moviecard";
 import { MovieContext } from "../context/AuthContext";
 import { toastWarning } from "../helper/Toastify";
 
-const ApiKey = "2ffb1cad850221d084465c45e6fd0612";
+const ApiKey = process.env.REACT_APP_TMDB_KEY;
 const FEATURED_API = `https://api.themoviedb.org/3/discover/movie?api_key=${ApiKey}`;
 const SEARCH_API = `https://api.themoviedb.org/3/search/movie?api_key=${ApiKey}&query=`;
 
@@ -13,6 +13,7 @@ const Main = () => {
   const [movies, setmovies] = useState([]);
   const [searchText, setSearchText] = useState("");
   const [loading, setLoading] = useState(false);
+  
   useEffect(() => {
     getMovies(FEATURED_API);
   }, []);

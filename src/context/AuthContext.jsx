@@ -7,7 +7,7 @@ const AuthContext = ({ children }) => {
   const [currentUser, setCurrentuser] = useState(false);
 
   useEffect(() => {
-   userObserver(setCurrentuser)
+    userObserver(setCurrentuser);
   }, []);
 
   return (

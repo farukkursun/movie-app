@@ -8,7 +8,7 @@ function App() {
     <div>
       <AuthContext>
         <Router />
-        <ToastContainer/>
+        <ToastContainer />
       </AuthContext>
     </div>
   );

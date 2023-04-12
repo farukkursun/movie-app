@@ -27,6 +27,8 @@ const firebaseConfig = {
 const app = initializeApp(firebaseConfig);
 export const auth = getAuth(app);
 
+// Methods
+// Create new user
 export const createRegister = async (
   registerEmail,
   registerPassword,
@@ -39,7 +41,7 @@ export const createRegister = async (
       registerEmail,
       registerPassword
     );
-    updateProfile(auth.currentUser, {
+    await updateProfile(auth.currentUser, {
       displayName: displayName,
     });
     navigate("/");
@@ -50,6 +52,7 @@ export const createRegister = async (
   }
 };
 
+// create login method
 export const createLogin = async (loginEmail, loginPassword, navigate) => {
   try {
     await signInWithEmailAndPassword(auth, loginEmail, loginPassword);
@@ -60,6 +63,7 @@ export const createLogin = async (loginEmail, loginPassword, navigate) => {
   }
 };
 
+// User takibi yapan method
 export const userObserver = (setCurrentUser) => {
   onAuthStateChanged(auth, (user) => {
     if (user) {
@@ -73,18 +77,20 @@ export const userObserver = (setCurrentUser) => {
   });
 };
 
+//logout method
 export const logOut = async () => {
   await signOut(auth);
-  toastSuccess('Logged out successfully')
+  toastSuccess("Logged out successfully");
 };
 
+// mit Google sign in
 export const signInWithGoogle = (navigate) => {
   const provider = new GoogleAuthProvider();
   signInWithPopup(auth, provider)
     .then((result) => {
       console.log(result);
       navigate("/");
-      toastSuccess('Logged in succesfully')
+      toastSuccess("Logged in succesfully");
     })
     .catch((error) => {
       console.log(error);
