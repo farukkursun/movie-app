@@ -62,8 +62,8 @@ const MovieDetail = () => {
               <ListGroup.Item>{"Total Vote : " + vote_count}</ListGroup.Item>
             </ListGroup>
           </Card.Body>
-          <Link className="ms-3" to={-1}>
-            Go Back
+          <Link className="ms-3 back" to={-1}>
+           Go Back
           </Link>
         </Card>
       </CardGroup>

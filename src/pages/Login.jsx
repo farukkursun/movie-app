@@ -17,7 +17,7 @@ const Login = () => {
 
   return (<div className="d-flex">
   <div className="loginana"></div>
-    <Form onSubmit={handleSubmit} className='login text-center'>
+    <Form onSubmit={handleSubmit} className='login text-center text-white '>
       <Form.Group className="mb-3 text-center" controlId="email">
         <Form.Label>Email address</Form.Label>
         <Form.Control
@@ -28,7 +28,7 @@ const Login = () => {
         />
       </Form.Group>
 
-      <Form.Group className="mb-3 text-center" controlId="password">
+      <Form.Group className="mb-3 text-center text-white " controlId="password">
         <Form.Label>Password</Form.Label>
         <Form.Control
           onChange={(e) => setLoginPassword(e.target.value)}

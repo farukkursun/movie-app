@@ -24,7 +24,7 @@ const Register = () => {
       <div className="registerana"></div>
       <Form onSubmit={handleSubmit} className="register text-center">
         <Form.Group className="mb-3" controlId="name">
-          <Form.Label className="text-center">Name</Form.Label>
+          <Form.Label className="text-center text-white ">Name</Form.Label>
           <Form.Control
             required
             className="w-75 m-auto"
@@ -35,7 +35,7 @@ const Register = () => {
         </Form.Group>
 
         <Form.Group className="mb-3m" controlId="latsname">
-          <Form.Label>LastName</Form.Label>
+          <Form.Label className="text-white">LastName</Form.Label>
           <Form.Control
             required
             className="w-75 m-auto"
@@ -45,7 +45,7 @@ const Register = () => {
           />
         </Form.Group>
         <Form.Group className="mb-3" controlId="email">
-          <Form.Label>Email address</Form.Label>
+          <Form.Label className="text-white" >Email address</Form.Label>
           <Form.Control
             required
             className="w-75 m-auto"
@@ -56,7 +56,7 @@ const Register = () => {
         </Form.Group>
 
         <Form.Group className="mb-3" controlId="password">
-          <Form.Label>Password</Form.Label>
+          <Form.Label className="text-white">Password</Form.Label>
           <Form.Control
             required
             className="w-75 m-auto"

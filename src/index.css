@@ -136,3 +136,7 @@ margin: 1rem auto;
  .renk{
   background-color: #414040;
  }
+ .back{
+  text-decoration: none;
+  color: black;
+ }
