@@ -55,7 +55,7 @@ const Main = () => {
       </form>
       <div className="main">
         {loading ? (
-          <div class="spinner-border" role="status">
+          <div class="spinner-border text-success" role="status">
             <span class="sr-only"></span>
           </div>
         ) : (
